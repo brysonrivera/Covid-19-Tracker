@@ -1,5 +1,5 @@
 # Covid-19-Tracker
-Covid Tracker Application created for "Future of Healthcare Hackathon"
+Covid Tracker Application created for "Future of Healthcare" Hackathon
 
 
 ## Django Specific (Set-Up for Contributor)
