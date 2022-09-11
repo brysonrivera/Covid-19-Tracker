@@ -76,7 +76,8 @@ def hospital_admissions_per_100k(request):
         zips = json.load(f)
         if zip in zips:
             fips = zips[zip]
-            res = requests.get(f'https://data.cdc.gov/resource/3nnm-4jni.json?county_fips={fips}').json()
+            res = requests.get(
+                f'https://data.cdc.gov/resource/3nnm-4jni.json?county_fips={fips}').json()
             filtered_res = []
             for entry in res:
                 county = f"{entry['county']}, {entry['state']}"

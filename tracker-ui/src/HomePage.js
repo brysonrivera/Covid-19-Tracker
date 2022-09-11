@@ -1,19 +1,44 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import PathogenImage from './img/pathogen.jpg'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import axios from 'axios';
+
+const covidURL = "http://127.0.0.1:8000/covid"
 
 const HomePage = () => {
 
     const [zipCode, setZipCode] = useState();
+    const [cases, setCases] = useState([]);
     const tempZip = useRef();
     const [invalidZip, setInvalidZip] = useState(false);
+    const [message, setMessage] = useState("");
 
     const setZIP = (e) => {
         e.preventDefault();
-        console.log(tempZip.current.value)
-        tempZip.current.value = ''
+        setZipCode(tempZip.current.value);
+        tempZip.current.value = '';
     }
+
+    useEffect(async () => {
+        try {
+            const res = await axios.get(`${covidURL}/casesPer100k?zip_code=${zipCode}`);
+            console.log(res);
+            setCases(res)
+
+        } catch (error) {
+            console.log(error);
+            setMessage("Invalid ZIP Code. Please Try Again.");
+            setInvalidZip(!invalidZip);
+        }
+
+    }, [zipCode])
+
+
+    useEffect(() => {
+        console.log(cases)
+
+    }, [cases])
 
     return (
         <div>
@@ -39,10 +64,19 @@ const HomePage = () => {
                         <Button onClick={(e) => setZIP(e)} className='form-item' variant="light" size='lg'>Submit</Button>
                     </Form.Group>
                 </div>
-
-
-
             </div>
+            {cases.length > 0 &&
+                <div>
+                    {
+                        cases.map((cas) => {
+                            return (
+                                <h1>{cas.covid_cases_per_100k}</h1>
+                            )
+                        })
+                    }
+                </div>
+            }
+
 
         </div >
     )
