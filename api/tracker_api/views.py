@@ -1,6 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import JsonResponse, HttpResponse
+from rest_framework.decorators import api_view
 
 # Create your views here.
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+@api_view(['GET'])
+def num_cases(request):
+    return HttpResponse("Num cases data should be returned")
+
+@api_view(['GET'])
+def hesitancy_rate(request):
+    return HttpResponse("Hesitancy rate data should be returned")
