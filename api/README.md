@@ -79,7 +79,7 @@ Example JSON output:
 ### covid/hospitalAdmissionsRatePer100k
 Method = GET </br>
 
-Returns a list of hospital admission rates per 100k for a county
+Returns a list of number of hospital admissions per 100k for a county
 
 URL Args:
 * zip_code: 5-digit US Zip code <br>
