@@ -23,6 +23,7 @@ const HomePage = () => {
     useEffect(() => {
         const getData = async () => {
             try {
+                console.log(zipCode)
                 const res = await axios.get(`http://127.0.0.1:8000/covid/casesPer100k?zip_code=${zipCode}`);
                 console.log(res);
                 setCases(res)
