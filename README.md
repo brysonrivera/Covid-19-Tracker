@@ -8,4 +8,4 @@ Covid Tracker Application created for "Future of Healthcare" Hackathon
 3. create a virtual env
 4. activate virtual env
 5. run "pip install -r requirements.txt" to have pip automatically install all dependencies listed in the requirements.txt file.
-testing
+
