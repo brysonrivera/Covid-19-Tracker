@@ -1,0 +1,38 @@
+header {
+  margin: 0;
+  background-color: black;
+}
+
+header>h1 {
+  margin: 0;
+  color: orange;
+  font-size: 8vw;
+  padding: 0;
+}
+
+p {
+  font-size: 2.5vw;
+  color: white;
+  margin-top: 0;
+}
+
+.form-outer-container {
+  border-radius: 25px;
+  width: 500px;
+  margin: 0 auto;
+  position: absolute;
+  padding: 10px;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: orange;
+}
+
+.form-inner-container {
+  text-align: center;
+  padding: 1em;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  justify-content: normal;
+}
