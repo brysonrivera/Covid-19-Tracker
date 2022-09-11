@@ -20,17 +20,20 @@ const HomePage = () => {
         tempZip.current.value = '';
     }
 
-    useEffect(async () => {
-        try {
-            const res = await axios.get(`${covidURL}/casesPer100k?zip_code=${zipCode}`);
-            console.log(res);
-            setCases(res)
+    useEffect(() => {
+        const getData = async () => {
+            try {
+                const res = await axios.get(`http://127.0.0.1:8000/covid/casesPer100k?zip_code=${zipCode}`);
+                console.log(res);
+                setCases(res)
+            } catch (error) {
+                console.log(error);
+                setMessage("Invalid ZIP Code. Please Try Again.");
+                setInvalidZip(!invalidZip);
+            }
 
-        } catch (error) {
-            console.log(error);
-            setMessage("Invalid ZIP Code. Please Try Again.");
-            setInvalidZip(!invalidZip);
         }
+        if (zipCode !== undefined) getData()
 
     }, [zipCode])
 
@@ -76,8 +79,6 @@ const HomePage = () => {
                     }
                 </div>
             }
-
-
         </div >
     )
 }
