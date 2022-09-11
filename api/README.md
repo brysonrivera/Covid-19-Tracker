@@ -3,13 +3,13 @@
 ## Endpoints
 ### covid/casesPer100k
 Method = GET <br>
-Returns a list number of covid cases (per 100k) sorted by date_updated for a county
+Returns a list of number of covid cases (per 100k) sorted by date_updated for a county
 
-URL Args: <br>
+URL Args:
 * zip_code: 5-digit US Zip code <br>
 * city, state (must be together) <br>
     
-Example URLs: <br>
+Example URLs:
 * /covid/casesPer100k?zip_code=12345 <br>
 * /covid/casesPer100k?city=Los Angeles?state=California <br>
     
@@ -45,6 +45,7 @@ URL Args:
 * city, state (must be together) <br>
 
 Example JSON output:
+
 ```
 {
     "county": "Los Angeles County",
@@ -55,14 +56,17 @@ Example JSON output:
 ---
 
 ### covid/hesitancyRate
-Method = GET 
+Method = GET <br>
 Returns the most recent percentage a county that has expressed hesitance about getting the COVID-19 vaccine.
+
 
 URL Args:
 * zip_code: 5-digit US Zip code <br>
 * city, state (must be together) <br>
   
+  
 Example JSON output:
+
 ```
 {
     "county": "Los Angeles County, California",
@@ -73,9 +77,14 @@ Example JSON output:
 ---
 
 ### covid/hospitalAdmissionsRatePer100k
+Method = GET </br>
+
+Returns a list of hospital admission rates per 100k for a county
+
 URL Args:
 * zip_code: 5-digit US Zip code <br>
 * city, state (must be together) <br>
+     
      
 Example JSON output:
 ```
